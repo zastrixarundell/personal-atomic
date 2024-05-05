@@ -31,7 +31,7 @@ rpm-ostree install ncdu
 rpm-ostree install podman-compose
 rpm-ostree install sunshine
 rpm-ostree install tailscale
-rpm-ostree install teamviewer
+#rpm-ostree install teamviewer
 rpm-ostree install wireshark
 rpm-ostree install WoeUSB
 rpm-ostree install zsh
