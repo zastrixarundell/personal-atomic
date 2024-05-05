@@ -37,3 +37,5 @@ systemctl enable podman.socket
 # systemctl enable teamviewerd.service
 
 systemctl enable tailscaled.service
+
+systemctl enable libvirtd.service
