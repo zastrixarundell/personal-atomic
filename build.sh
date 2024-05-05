@@ -26,8 +26,10 @@ setsebool -P nis_enabled 1
 
 rpm-ostree install code corectrl goverlay ncdu podman-compose sunshine tailscale wireshark WoeUSB zsh virt-manager
 
-#### Example for enabling a System Unit File
+rpm-ostree uninstall firefox firefox-langpacks
 
+#### Example for enabling a System Unit File
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/zastrixarundell/personal-kinoite:latest
 systemctl enable podman.socket
 
 # echo "Setting up syslink for teamviewer"
