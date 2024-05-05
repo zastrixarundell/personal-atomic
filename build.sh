@@ -23,7 +23,7 @@ curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedora
 	sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo
 
 rpm-ostree install code corectrl goverlay ncdu podman-compose sunshine tailscale teamviewer \
-        virt-manager wireshark WoeUSB zsh
+        wireshark WoeUSB zsh
 
 # rpm-ostree uninstall firefox firefox-langpacks
 
@@ -36,6 +36,8 @@ rpm-ostree install code corectrl goverlay ncdu podman-compose sunshine tailscale
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+
+echo "Setting up syslink for teamviewer"
 
 ln -s /usr/lib/opt/teamviewer/tv_bin/script/teamviewerd.service /etc/systemd/system/teamviewerd.service
 
