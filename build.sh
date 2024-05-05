@@ -23,7 +23,7 @@ curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedora
 	sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo
 
 rpm-ostree install code corectrl goverlay ncdu podman-compose sunshine tailscale teamviewer \
-        wireshark WoeUSB zsh
+        virt-manager wireshark WoeUSB zsh
 
 rpm-ostree uninstall firefox firefox-langpacks
 
