@@ -58,3 +58,5 @@ systemctl enable podman.socket
 ln -s /usr/lib/opt/teamviewer/tv_bin/script/teamviewerd.service /etc/systemd/system/teamviewerd.service
 
 systemctl enable teamviewerd.service
+
+systemctl enable tailscaled.service
