@@ -26,6 +26,9 @@ setsebool -P nis_enabled 1
 
 rpm-ostree install code corectrl goverlay ncdu podman-compose sunshine tailscale wireshark WoeUSB zsh virt-manager
 
+# Teamviewer has an issue whenere it responds with -1 even if it's complet. This just gives the code 0 always
+rpm-ostree install teamviewer || touch /tmp/ok
+
 rpm-ostree uninstall firefox firefox-langpacks
 
 #### Example for enabling a System Unit File
@@ -33,9 +36,9 @@ systemctl enable podman.socket
 
 # echo "Setting up syslink for teamviewer"
 
-# ln -s /usr/lib/opt/teamviewer/tv_bin/script/teamviewerd.service /etc/systemd/system/teamviewerd.service
+ln -s /usr/lib/opt/teamviewer/tv_bin/script/teamviewerd.service /etc/systemd/system/teamviewerd.service
 
-# systemctl enable teamviewerd.service
+systemctl enable teamviewerd.service
 
 systemctl enable tailscaled.service
 
