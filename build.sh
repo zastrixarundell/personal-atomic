@@ -22,6 +22,8 @@ curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedora
 	curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo && \
 	sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo
 
+setsebool -P nis_enabled 1
+
 rpm-ostree install code
 rpm-ostree install corectrl
 rpm-ostree install goverlay
