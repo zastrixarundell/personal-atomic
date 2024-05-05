@@ -32,7 +32,7 @@ enabled=1
 type=rpm-md
 EOF
 
-cat <<EOF | /etc/yum.repos.d/vscode.repo
+cat <<EOF > /etc/yum.repos.d/vscode.repo
 [code]
 name=Visual Studio Code
 baseurl=https://packages.microsoft.com/yumrepos/vscode
