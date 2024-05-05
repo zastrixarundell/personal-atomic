@@ -24,35 +24,16 @@ curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedora
 
 setsebool -P nis_enabled 1
 
-rpm-ostree install code
-rpm-ostree install corectrl
-rpm-ostree install goverlay
-rpm-ostree install ncdu
-rpm-ostree install podman-compose
-rpm-ostree install sunshine
-rpm-ostree install tailscale
-#rpm-ostree install teamviewer
-rpm-ostree install wireshark
-rpm-ostree install WoeUSB
-rpm-ostree install zsh
-rpm-ostree install virt-manager
-
-# rpm-ostree uninstall firefox firefox-langpacks
-
-# this installs a package from fedora repos
-#rpm-ostree install screen
-
-# this would install a package from rpmfusion
-# rpm-ostree install vlc
+rpm-ostree install code corectrl goverlay ncdu podman-compose sunshine tailscale wireshark WoeUSB zsh virt-manager
 
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
 
-echo "Setting up syslink for teamviewer"
+# echo "Setting up syslink for teamviewer"
 
-ln -s /usr/lib/opt/teamviewer/tv_bin/script/teamviewerd.service /etc/systemd/system/teamviewerd.service
+# ln -s /usr/lib/opt/teamviewer/tv_bin/script/teamviewerd.service /etc/systemd/system/teamviewerd.service
 
-systemctl enable teamviewerd.service
+# systemctl enable teamviewerd.service
 
 systemctl enable tailscaled.service
