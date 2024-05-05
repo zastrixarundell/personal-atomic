@@ -25,7 +25,7 @@ curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedora
 rpm-ostree install code corectrl goverlay ncdu podman-compose sunshine tailscale teamviewer \
         virt-manager wireshark WoeUSB zsh
 
-rpm-ostree uninstall firefox firefox-langpacks
+# rpm-ostree uninstall firefox firefox-langpacks
 
 # this installs a package from fedora repos
 #rpm-ostree install screen
