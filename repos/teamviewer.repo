@@ -1,6 +1,6 @@
 [teamviewer]
-name=TeamViewer - \$basearch
-baseurl=https://linux.teamviewer.com/yum/stable/main/binary-\$basearch/
+name=TeamViewer - $basearch
+baseurl=https://linux.teamviewer.com/yum/stable/main/binary-$basearch/
 gpgkey=https://linux.teamviewer.com/pubkey/currentkey.asc
 gpgcheck=1
 repo_gpgcheck=1
