@@ -32,3 +32,4 @@ setsebool -P nis_enabled 1
 
 systemctl enable tailscaled.service
 systemctl enable libvirtd.service
+systemctl enable sunshine-workaround.service
