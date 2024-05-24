@@ -22,7 +22,7 @@ curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedora
  	curl -Lo /etc/yum.repos.d/hardware:razer.repo https://download.opensuse.org/repositories/hardware:/razer/Fedora_$(rpm -E %fedora)/hardware:razer.repo && \
 	sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo
 
-rpm-ostree install code goverlay ncdu podman-compose sunshine tailscale wireshark WoeUSB zsh virt-manager
+rpm-ostree install code goverlay ncdu podman-compose sunshine tailscale wireshark WoeUSB zsh virt-manager fastfetch
 
 rpm-ostree uninstall firefox firefox-langpacks
 
