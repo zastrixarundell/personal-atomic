@@ -19,10 +19,9 @@ RELEASE="$(rpm -E %fedora)"
 curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedorainfracloud.org/coprs/matte-schwartz/sunshine/repo/fedora-"${RELEASE}"/matte-schwartz-sunshine-fedora-"${RELEASE}".repo && \
 	curl -Lo /etc/yum.repos.d/vscode.repo https://raw.githubusercontent.com/zastrixarundell/personal-kinoite/main/repos/vscode.repo && \
 	curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo && \
- 	curl -Lo /etc/yum.repos.d/hardware:razer.repo https://download.opensuse.org/repositories/hardware:/razer/Fedora_$(rpm -E %fedora)/hardware:razer.repo && \
 	sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo
 
-rpm-ostree install code goverlay ncdu podman-compose sunshine tailscale wireshark WoeUSB zsh virt-manager fastfetch
+rpm-ostree install code goverlay ncdu podman-compose sunshine tailscale wireshark WoeUSB zsh virt-manager fastfetch v4l2loopback
 
 rpm-ostree uninstall firefox firefox-langpacks
 
