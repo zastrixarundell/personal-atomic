@@ -28,8 +28,6 @@ rpm-ostree uninstall firefox firefox-langpacks
 #### Example for enabling a System Unit File
 systemctl enable podman.socket
 
-setsebool -P nis_enabled 1
-
 systemctl enable tailscaled.service
 systemctl enable libvirtd.service
 systemctl enable sunshine-workaround.service
