@@ -31,3 +31,14 @@ systemctl enable podman.socket
 systemctl enable tailscaled.service
 systemctl enable libvirtd.service
 systemctl enable sunshine-workaround.service
+
+systemctl enable sshd.service
+
+### Setting up pipewire for easyeffects under high CPU load
+
+mkdir -p /etc/pipewire
+
+cp /usr/share/pipewire/pipewire.conf /etc/pipewire/
+
+sed -i 's/#default.clock.min-quantum   = 32/default.clock.min-quantum    = 1024/g'   /etc/pipewire/pipewire.conf
+sed -i 's/#default.clock.max-quantum   = 2048/default.clock.max-quantum    = 1024/g' /etc/pipewire/pipewire.conf
