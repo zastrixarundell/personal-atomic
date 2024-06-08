@@ -24,7 +24,7 @@ rpm-ostree install code corectrl goverlay ncdu podman-compose sunshine tailscale
 
 rpm-ostree uninstall firefox firefox-langpacks
 
-if [ -n "$MESA_GIT" ]; then
+if [ -n "${MESA_GIT:-}" ]; then
 	rpm-ostree override remove mesa-va-drivers-freeworld
 
 	rpm-ostree override --experimental replace mesa-libglapi mesa-libxatracker mesa-dri-drivers mesa-libgbm mesa-libEGL mesa-libGL \
