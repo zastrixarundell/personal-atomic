@@ -44,6 +44,9 @@ systemctl enable sunshine-workaround.service
 
 systemctl enable sshd.service
 
+# Decrease the boot-time
+systemctl disable NetworkManager-wait-online.service
+
 ### Setting up pipewire for easyeffects under high CPU load
 
 mkdir -p /etc/pipewire
