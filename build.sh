@@ -39,7 +39,7 @@ fi
 systemctl enable podman.socket
 
 systemctl enable tailscaled.service
-systemctl enable libvirtd.service
+#systemctl enable libvirtd.service
 systemctl enable sunshine-workaround.service
 
 systemctl enable sshd.service
