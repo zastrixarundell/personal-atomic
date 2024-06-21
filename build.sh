@@ -22,7 +22,7 @@ curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedora
 
 # virt-manager
 
-rpm-ostree install code corectrl goverlay ncdu podman-compose sunshine tailscale wireshark WoeUSB zsh fastfetch
+rpm-ostree install code corectrl goverlay ncdu podman-compose sunshine tailscale wireshark WoeUSB zsh fastfetch krdp
 
 rpm-ostree uninstall firefox firefox-langpacks
 
