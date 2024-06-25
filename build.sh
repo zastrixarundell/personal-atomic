@@ -16,16 +16,6 @@ RELEASE="$(rpm -E %fedora)"
 #    chmod +x /usr/bin/copr && \
 #    /usr/bin/copr enable matte-schwartz/sunshine
 
-curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedorainfracloud.org/coprs/matte-schwartz/sunshine/repo/fedora-"${RELEASE}"/matte-schwartz-sunshine-fedora-"${RELEASE}".repo && \
-	curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo && \
-	sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo
-
-# virt-manager
-
-rpm-ostree install code corectrl goverlay ncdu podman-compose sunshine tailscale wireshark WoeUSB zsh fastfetch krdp krdc
-
-rpm-ostree uninstall firefox firefox-langpacks
-
 if [ "$MESA_GIT" == "true" ]; then
 	rpm-ostree override remove mesa-va-drivers-freeworld
 
@@ -37,6 +27,16 @@ if [ "$MESA_GIT" == "true" ]; then
 
 	rpm-ostree install mesa-va-drivers
 fi
+
+curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedorainfracloud.org/coprs/matte-schwartz/sunshine/repo/fedora-"${RELEASE}"/matte-schwartz-sunshine-fedora-"${RELEASE}".repo && \
+	curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo && \
+	sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo
+
+# virt-manager
+
+rpm-ostree install code corectrl goverlay ncdu podman-compose sunshine tailscale wireshark WoeUSB zsh fastfetch krdp krdc
+
+rpm-ostree uninstall firefox firefox-langpacks
 
 #### Example for enabling a System Unit File
 systemctl enable podman.socket

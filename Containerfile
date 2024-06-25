@@ -49,8 +49,7 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 
 COPY system_files/desktop/shared /
 
-ARG MESA_GIT
-ENV MESA_GIT=${MESA_GIT}
+ARG MESA_GIT="${MESA_GIT}"
 
 COPY build.sh /tmp/build.sh
 
