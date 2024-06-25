@@ -26,12 +26,17 @@ rpm-ostree install code corectrl goverlay ncdu podman-compose sunshine tailscale
 
 rpm-ostree uninstall firefox firefox-langpacks
 
-# rpm-ostree override remove mesa-va-drivers-freeworld
+if [ "$MESA_GIT" == "true" ]; then
+	rpm-ostree override remove mesa-va-drivers-freeworld
 
-# rpm-ostree override --experimental replace mesa-libglapi mesa-libxatracker mesa-dri-drivers mesa-libgbm mesa-libEGL mesa-libGL \
-# 			mesa-filesystem mesa-vdpau-drivers mesa-vulkan-drivers --from repo=mesa-git;
+	rpm-ostree override --experimental replace \
+		mesa-libglapi mesa-libxatracker mesa-dri-drivers \
+		mesa-libgbm mesa-libEGL mesa-libGL \
+		mesa-filesystem mesa-vdpau-drivers mesa-vulkan-drivers \
+		--from repo=mesa-git
 
-# rpm-ostree install mesa-va-drivers
+	rpm-ostree install mesa-va-drivers
+fi
 
 #### Example for enabling a System Unit File
 systemctl enable podman.socket
