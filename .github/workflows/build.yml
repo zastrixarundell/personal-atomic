@@ -96,7 +96,7 @@ jobs:
         id: build_image
         uses: redhat-actions/buildah-build@v2
         env:
-          MESA_GIT: ${{ env.MESA_GIT }}
+          MESA_GIT: ${{ vars.MESA_GIT }}
         with:
           containerfiles: |
             ./Containerfile
