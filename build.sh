@@ -16,6 +16,16 @@ RELEASE="$(rpm -E %fedora)"
 #    chmod +x /usr/bin/copr && \
 #    /usr/bin/copr enable matte-schwartz/sunshine
 
+rpm-ostree override remove mesa-va-drivers-freeworld
+
+rpm-ostree override --experimental replace
+	mesa-libglapi mesa-libxatracker mesa-dri-drivers
+	mesa-libgbm mesa-libEGL mesa-libGL
+	mesa-filesystem mesa-vdpau-drivers mesa-vulkan-drivers
+	--from repo=mesa-git
+
+rpm-ostree install mesa-va-drivers
+
 curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedorainfracloud.org/coprs/matte-schwartz/sunshine/repo/fedora-"${RELEASE}"/matte-schwartz-sunshine-fedora-"${RELEASE}".repo && \
 	curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo && \
 	sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo

@@ -49,18 +49,6 @@ FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 
 COPY system_files/desktop/shared /
 
-ARG MESA_GIT="${MESA_GIT}"
-
-RUN if [ "$MESA_GIT" == "true" ]; then \
-        rpm-ostree override remove mesa-va-drivers-freeworld; \
-        rpm-ostree override --experimental replace \
-            mesa-libglapi mesa-libxatracker mesa-dri-drivers \
-            mesa-libgbm mesa-libEGL mesa-libGL \
-            mesa-filesystem mesa-vdpau-drivers mesa-vulkan-drivers \
-            --from repo=mesa-git; \
-        rpm-ostree install mesa-va-drivers; \
-    fi
-
 COPY build.sh /tmp/build.sh
 
 RUN mkdir -p /var/lib/alternatives && \
