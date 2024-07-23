@@ -40,13 +40,18 @@ rpm-ostree uninstall firefox firefox-langpacks
 systemctl enable podman.socket
 
 systemctl enable tailscaled.service
+
 #systemctl enable libvirtd.service
+
 systemctl enable sunshine-workaround.service
 
 systemctl enable sshd.service
 
 # Decrease the boot-time
 systemctl disable NetworkManager-wait-online.service
+
+# Enable mDNS
+systemctl enable avahi-daemon.service
 
 ### Setting up pipewire for easyeffects under high CPU load
 
