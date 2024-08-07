@@ -80,7 +80,7 @@ jobs:
 
       - name: Set Date
         id: date
-        run: echo "::set-output name=current_date::$(date +'%d%m%Y@%H:%M')"
+        run: echo "::set-output name=current_date::$(date +'%d%m%Y')"
 
       # Build metadata
       - name: Image Metadata
