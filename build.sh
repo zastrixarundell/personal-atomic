@@ -76,3 +76,10 @@ cp /usr/share/pipewire/pipewire.conf /etc/pipewire/
 
 sed -i 's/#default.clock.min-quantum   = 32/default.clock.min-quantum    = 1024/g'   /etc/pipewire/pipewire.conf
 sed -i 's/#default.clock.max-quantum   = 2048/default.clock.max-quantum    = 1024/g' /etc/pipewire/pipewire.conf
+
+### Setting kargs
+
+rpm-ostree kargs \
+        --delete-if-present=rhgb \
+	--append=amdgpu.ppfeaturemask=0xffffffff \
+	--append=threadirqs
