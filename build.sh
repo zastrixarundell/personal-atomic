@@ -26,9 +26,13 @@ RELEASE="$(rpm -E %fedora)"
 
 #rpm-ostree install mesa-va-drivers
 
-curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedorainfracloud.org/coprs/matte-schwartz/sunshine/repo/fedora-"${RELEASE}"/matte-schwartz-sunshine-fedora-"${RELEASE}".repo && \
-	curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo && \
-	sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo
+# Setting custom repositories
+
+curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedorainfracloud.org/coprs/matte-schwartz/sunshine/repo/fedora-"${RELEASE}"/matte-schwartz-sunshine-fedora-"${RELEASE}".repo
+
+curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+
+sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo
 
 # virt-manager
 
@@ -38,18 +42,26 @@ rpm-ostree install \
  	goverlay \
   	ncdu \
    	podman-compose \
-    	sunshine \
-     	tailscale \
-      	wireshark\
-       	WoeUSB \
+	sunshine \
+	tailscale \
+	wireshark\
+	WoeUSB \
 	zsh \
  	fastfetch \
   	krdp \
    	krdc \
-    	realtime-setup \
-     	android-tools
+	realtime-setup \
+	android-tools
 
 rpm-ostree uninstall firefox firefox-langpacks
+
+# Rustdesk has no repo, but it does provide github binaries
+
+rustdesk_url=$(curl --silent https://api.github.com/repos/rustdesk/rustdesk/releases/latest | jq --raw-output '.assets | map(select(.name | endswith("x86_64.rpm"))) | first | .browser_download_url')
+
+wget $rustdesk_url -O /tmp/rustdesk.rpm
+
+rpm-ostree install /tmp/rustdesk.rpm
 
 #### Example for enabling a System Unit File
 systemctl enable podman.socket
