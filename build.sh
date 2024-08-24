@@ -82,6 +82,9 @@ systemctl disable NetworkManager-wait-online.service
 # Enable mDNS
 systemctl enable avahi-daemon.service
 
+# Setup v4l2loopback
+modprobe v4l2loopback
+
 ### Setting up pipewire for easyeffects under high CPU load
 
 mkdir -p /etc/pipewire
