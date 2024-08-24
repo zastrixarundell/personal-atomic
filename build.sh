@@ -51,9 +51,7 @@ rpm-ostree install \
   	krdp \
    	krdc \
 	realtime-setup \
-	android-tools \
-	akmod-v4l2loopback \
-        v4l2loopback
+	android-tools
 
 rpm-ostree uninstall firefox firefox-langpacks
 
@@ -81,9 +79,6 @@ systemctl disable NetworkManager-wait-online.service
 
 # Enable mDNS
 systemctl enable avahi-daemon.service
-
-# Setup v4l2loopback
-modprobe v4l2loopback
 
 ### Setting up pipewire for easyeffects under high CPU load
 
