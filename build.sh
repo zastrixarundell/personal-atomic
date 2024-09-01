@@ -51,8 +51,7 @@ rpm-ostree install \
   	krdp \
    	krdc \
 	realtime-setup \
-	android-tools \
-	v4l2loopback
+	android-tools
 
 rpm-ostree uninstall firefox firefox-langpacks
 
