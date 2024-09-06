@@ -32,10 +32,7 @@ rpm-ostree install \
 	tailscale \
 	wireshark\
 	WoeUSB \
-	zsh \
  	fastfetch \
-  	krdp \
-   	krdc \
 	realtime-setup \
 	android-tools
 
