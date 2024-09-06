@@ -12,20 +12,6 @@ RELEASE="$(rpm -E %fedora)"
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-#curl -Lo /usr/bin/copr https://raw.githubusercontent.com/ublue-os/COPR-command/main/copr && \
-#    chmod +x /usr/bin/copr && \
-#    /usr/bin/copr enable matte-schwartz/sunshine
-
-#rpm-ostree override remove mesa-va-drivers-freeworld
-
-#rpm-ostree override --experimental replace \
-#	mesa-libglapi mesa-libxatracker mesa-dri-drivers \
-#	mesa-libgbm mesa-libEGL mesa-libGL \
-#	mesa-filesystem mesa-vdpau-drivers mesa-vulkan-drivers \
-#	--from repo=mesa-git
-
-#rpm-ostree install mesa-va-drivers
-
 # Setting custom repositories
 
 curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedorainfracloud.org/coprs/matte-schwartz/sunshine/repo/fedora-"${RELEASE}"/matte-schwartz-sunshine-fedora-"${RELEASE}".repo
