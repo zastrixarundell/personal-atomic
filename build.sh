@@ -20,21 +20,19 @@ curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedor
 
 sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo
 
-# virt-manager
-
 rpm-ostree install \
-	code \
-	corectrl \
- 	goverlay \
-  	ncdu \
-   	podman-compose \
-	sunshine \
-	tailscale \
-	wireshark\
-	WoeUSB \
- 	fastfetch \
-	realtime-setup \
-	android-tools
+    code \
+    corectrl \
+    goverlay \
+    ncdu \
+    podman-compose \
+    sunshine \
+    tailscale \
+    WoeUSB \
+    fastfetch \
+    realtime-setup \
+    android-tools \
+    qpwgraph
 
 rpm-ostree uninstall firefox firefox-langpacks
 
