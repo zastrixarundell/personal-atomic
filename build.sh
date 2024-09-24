@@ -4,18 +4,15 @@ set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
 
-KERNEL_VERSION="6.12.0"
 
-KERNEL_VERSION_NUMBER="0.rc0.20240923gitde5cb0dcb74c.9.fc42"
+### Install packages
 
-curl -Lo /tmp/kernel-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/kernel/$KERNEL_VERSION/$KERNEL_VERSION_NUMBER/x86_64/kernel-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm
-curl -Lo /tmp/kernel-modules-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/kernel/$KERNEL_VERSION/$KERNEL_VERSION_NUMBER/x86_64/kernel-modules-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm
-curl -Lo /tmp/kernel-modules-extra-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/kernel/$KERNEL_VERSION/$KERNEL_VERSION_NUMBER/x86_64/kernel-modules-extra-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm
-curl -Lo /tmp/kernel-core-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/kernel/$KERNEL_VERSION/$KERNEL_VERSION_NUMBER/x86_64/kernel-core-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm
-curl -Lo /tmp/kernel-modules-core-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/kernel/$KERNEL_VERSION/$KERNEL_VERSION_NUMBER/x86_64/kernel-modules-core-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm
+# Packages can be installed from any enabled yum repo on the image.
+# RPMfusion repos are available by default in ublue main images
+# List of rpmfusion packages can be found here:
+# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-rpm-ostree override replace \
-  /tmp/kernel-{,modules-,modules-extra-,modules-core-,core-}$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm
+# Setting custom repositories
 
 curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedorainfracloud.org/coprs/matte-schwartz/sunshine/repo/fedora-"${RELEASE}"/matte-schwartz-sunshine-fedora-"${RELEASE}".repo
 
