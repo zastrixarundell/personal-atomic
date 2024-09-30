@@ -1,0 +1,11 @@
+[Unit]
+Description=Update all userspace containers
+ConditionPathExists=/usr/bin/distrobox
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/distrobox upgrade --all
+
+[Install]
+WantedBy=multi-user.target
