@@ -33,7 +33,8 @@ rpm-ostree install \
     realtime-setup \
     android-tools \
     qpwgraph \
-    btop
+    btop \
+    rocm-smi
 
 rpm-ostree uninstall firefox firefox-langpacks
 
