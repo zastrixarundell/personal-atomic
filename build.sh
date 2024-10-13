@@ -34,7 +34,8 @@ rpm-ostree install \
     android-tools \
     qpwgraph \
     btop \
-    rocm-smi
+    rocm-smi \
+    waydroid
 
 rpm-ostree uninstall firefox firefox-langpacks
 
@@ -69,9 +70,13 @@ mkdir -p /etc/pipewire
 
 cp /usr/share/pipewire/pipewire.conf /etc/pipewire/
 
-sed -i 's/#default.clock.min-quantum   = 32/default.clock.min-quantum    = 1024/g'   /etc/pipewire/pipewire.conf
-sed -i 's/#default.clock.max-quantum   = 2048/default.clock.max-quantum    = 1024/g' /etc/pipewire/pipewire.conf
+sed -i 's/#default.clock.min-quantum   = 32/default.clock.min-quantum    = 2048/g'   /etc/pipewire/pipewire.conf
+sed -i 's/#default.clock.max-quantum   = 2048/default.clock.max-quantum    = 2048/g' /etc/pipewire/pipewire.conf
 
 # Corectrl without password
 
 groupadd corectrl
+
+# Waydroid
+
+systemctl enable waydroid-container.service
