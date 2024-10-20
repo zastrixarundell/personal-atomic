@@ -14,6 +14,11 @@ RELEASE="$(rpm -E %fedora)"
 
 # Setting custom repositories
 
+
+curl -Lo /etc/yum.repos.d/_copr_bieszczaders-kernel-cachyos.repo https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/repo/fedora-$(rpm -E %fedora)/bieszczaders-kernel-cachyos-fedora-$(rpm -E %fedora).repo
+
+rpm-ostree override remove kernel{,-core,-modules,-modules-core,-modules-extra} --install kernel-cachyos-rt
+
 curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedorainfracloud.org/coprs/matte-schwartz/sunshine/repo/fedora-"${RELEASE}"/matte-schwartz-sunshine-fedora-"${RELEASE}".repo
 
 curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
