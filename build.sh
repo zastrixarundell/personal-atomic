@@ -20,21 +20,47 @@ curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedor
 
 sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo
 
+# Coding:
+#   - code
+#   - inotify-tools
+#   - android-tools
+#   - podman-compose
+
+# System information:
+#   - ncdu
+#   - fastfetch
+#   - btop
+#   - rocm-smi (for btop gpu W)
+
+# System control:
+#   - corectrl
+#   - goverlay
+#   - sunshine
+#   - qpwgraph
+#   - tailscale
+
+# Windows:
+#   - WoeUSB
+
+# Audio work:
+#   - realtime-setup
+
 rpm-ostree install \
     code \
+    inotify-tools \
+    android-tools \
+    podman-compose \
+    ncdu \
+    fastfetch \
+    btop \
+    rocm-smi \
     corectrl \
     goverlay \
-    ncdu \
-    podman-compose \
     sunshine \
+    qpwgraph \
     tailscale \
     WoeUSB \
-    fastfetch \
-    realtime-setup \
-    android-tools \
-    qpwgraph \
-    btop \
-    rocm-smi
+    realtime-setup
 
 rpm-ostree uninstall firefox firefox-langpacks
 
