@@ -80,7 +80,7 @@ jobs:
 
       - name: Set Date
         id: date
-        run: echo "::set-output name=current_date::$(date +'%d%m%Y')"
+        run: echo "current_date=$(date +'%d%m%Y')" >> $GITHUB_OUTPUT
 
       # Build metadata
       - name: Image Metadata
