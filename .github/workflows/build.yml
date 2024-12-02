@@ -117,7 +117,7 @@ jobs:
         with:
           image: ${{ steps.build_image.outputs.image }}
           tags: ${{ steps.build_image.outputs.tags }}
-          registry: docker.io/zastrix/personal-atomic
+          registry: docker.io/zastrix
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           extra-args: |
