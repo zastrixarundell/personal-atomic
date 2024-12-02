@@ -142,7 +142,7 @@ jobs:
       - name: Sign container image
         if: github.event_name != 'pull_request'
         run: |
-          cosign sign -y --key env://COSIGN_PRIVATE_KEY docker.io/zastrix/${{ steps.build_image.outputs.image }}@${TAGS}
+          cosign sign -y --key env://COSIGN_PRIVATE_KEY docker.io/zastrix/${{ steps.build_image.outputs.image }}:${TAGS}
         env:
           TAGS: ${{ steps.build_image.outputs.tags }}
           COSIGN_EXPERIMENTAL: false
