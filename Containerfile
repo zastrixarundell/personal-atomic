@@ -38,9 +38,10 @@ ARG SOURCE_SUFFIX="-main"
 ## SOURCE_TAG arg must be a version built for the specific image: eg, 39, 40, gts, latest
 ARG SOURCE_TAG="latest"
 
-ARG LATEST_KERNEL="false"
 
 FROM alpine:latest
+
+ARG LATEST_KERNEL="false"
 
 RUN echo "Using latest kernel? ${LATEST_KERNEL}"
 
