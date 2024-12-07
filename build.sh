@@ -4,7 +4,7 @@ set -ouex pipefail
 
 RELEASE="$(rpm -E %fedora)"
 
-if [ -n "${VAR}" ]; then
+if [ -n "${LATEST_KERNEL+x}" ]; then
     # Install the latest version of the kernel
     CLEAN_KERNEL_VERSION=$(curl -L -s https://packages.fedoraproject.org/pkgs/kernel/kernel/fedora-rawhide.html | grep '<title>' | sed -n 's/.*kernel-\([^ ]*\).*/\1/p')
 
