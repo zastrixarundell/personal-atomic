@@ -110,6 +110,8 @@ jobs:
             ${{ steps.generate-tags.outputs.alias_tags }}
           labels: ${{ steps.meta.outputs.labels }}
           oci: false
+          build-args: |
+            LATEST_KERNEL=${{ env.LATEST_KERNEL }}
 
       - name: Push Image to docker.io
         uses: redhat-actions/push-to-registry@v2
