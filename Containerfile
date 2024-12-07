@@ -42,7 +42,7 @@ ARG SOURCE_TAG="latest"
 ## this is a standard Containerfile FROM using the build ARGs above to select the right upstream image
 FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
 
-ARG LATEST_KERNEL
+ARG LATEST_KERNEL="false"
 
 ENV LATEST_KERNEL=$LATEST_KERNEL
 
