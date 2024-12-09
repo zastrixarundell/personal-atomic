@@ -80,7 +80,8 @@ rpm-ostree install \
     realtime-setup \
     openrgb-udev-rules \
     htop \
-    zstd
+    zstd \
+    distrobox
 
 rpm-ostree uninstall firefox firefox-langpacks
 
