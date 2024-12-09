@@ -78,7 +78,9 @@ rpm-ostree install \
     tailscale \
     WoeUSB \
     realtime-setup \
-    openrgb-udev-rules
+    openrgb-udev-rules \
+    htop \
+    zstd
 
 rpm-ostree uninstall firefox firefox-langpacks
 
