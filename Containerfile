@@ -8,6 +8,8 @@ RUN echo "Using latest kernel? ${LATEST_KERNEL}"
 
 COPY system_files/desktop/shared /
 
+COPY cosign.pub /etc/pki/containers/zastrix.pub
+
 COPY build.sh /tmp/build.sh
 
 RUN mkdir -p /var/lib/alternatives && \
