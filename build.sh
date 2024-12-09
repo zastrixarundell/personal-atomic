@@ -122,3 +122,8 @@ sed -i 's/#default.clock.max-quantum[[:space:]]*= 2048/default.clock.max-quantum
 # Corectrl without password
 
 groupadd corectrl
+
+# Default custom services
+
+systemctl --global enable flatpak-user-update.timer
+systemctl --global enable container-update.timer
