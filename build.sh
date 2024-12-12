@@ -107,6 +107,9 @@ systemctl enable sshd.service
 # Decrease the boot-time
 systemctl disable NetworkManager-wait-online.service
 
+# Enable auto-system updates
+systemctl enable rpm-ostreed-automatic.timer
+
 # Enable mDNS
 systemctl enable avahi-daemon.service
 
