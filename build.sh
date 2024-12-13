@@ -5,21 +5,7 @@ set -ouex pipefail
 RELEASE="$(rpm -E %fedora)"
 
 if [ $LATEST_KERNEL == "true" ]; then
-    # Install the latest version of the kernel
-    CLEAN_KERNEL_VERSION=$(curl -L -s https://packages.fedoraproject.org/pkgs/kernel/kernel/fedora-rawhide.html | grep '<title>' | sed -n 's/.*kernel-\([^ ]*\).*/\1/p')
-
-    KERNEL_VERSION=$(echo $CLEAN_KERNEL_VERSION | sed -n 's/\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p')
-    
-    KERNEL_VERSION_NUMBER=$(echo $CLEAN_KERNEL_VERSION | sed "s/$KERNEL_VERSION-//")
-    
-    curl -Lo /tmp/kernel-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/kernel/$KERNEL_VERSION/$KERNEL_VERSION_NUMBER/x86_64/kernel-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm
-    curl -Lo /tmp/kernel-modules-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/kernel/$KERNEL_VERSION/$KERNEL_VERSION_NUMBER/x86_64/kernel-modules-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm
-    curl -Lo /tmp/kernel-modules-extra-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/kernel/$KERNEL_VERSION/$KERNEL_VERSION_NUMBER/x86_64/kernel-modules-extra-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm
-    curl -Lo /tmp/kernel-core-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/kernel/$KERNEL_VERSION/$KERNEL_VERSION_NUMBER/x86_64/kernel-core-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm
-    curl -Lo /tmp/kernel-modules-core-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/kernel/$KERNEL_VERSION/$KERNEL_VERSION_NUMBER/x86_64/kernel-modules-core-$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm
-
-    rpm-ostree override replace \
-    /tmp/kernel-{,modules-,modules-extra-,modules-core-,core-}$KERNEL_VERSION-$KERNEL_VERSION_NUMBER.x86_64.rpm
+    /bin/bash ./build.d/latest_kernel.sh
 fi
 
 ### Install packages
@@ -31,74 +17,14 @@ fi
 
 # Setting custom repositories
 
-curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedorainfracloud.org/coprs/matte-schwartz/sunshine/repo/fedora-"${RELEASE}"/matte-schwartz-sunshine-fedora-"${RELEASE}".repo
+/bin/bash ./build.d/sources.sh
 
-curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-
-sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo
-
-# Coding:
-#   - code
-#   - inotify-tools
-#   - android-tools
-#   - podman-compose
-
-# System information:
-#   - ncdu
-#   - fastfetch
-#   - btop
-#   - rocm-smi (for btop gpu W)
-
-# System control:
-#   - corectrl
-#   - goverlay
-#   - sunshine
-#   - qpwgraph
-#   - tailscale
-
-# Windows:
-#   - WoeUSB
-
-# Audio work:
-#   - realtime-setup
-
-rpm-ostree install \
-    code \
-    inotify-tools \
-    android-tools \
-    podman-compose \
-    ncdu \
-    fastfetch \
-    btop \
-    rocm-smi \
-    corectrl \
-    goverlay \
-    sunshine \
-    qpwgraph \
-    tailscale \
-    WoeUSB \
-    realtime-setup \
-    openrgb-udev-rules \
-    htop \
-    zstd \
-    distrobox
-
-rpm-ostree uninstall firefox firefox-langpacks
-
-# Rustdesk has no repo, but it does provide github binaries
-
-rustdesk_url=$(curl --silent https://api.github.com/repos/rustdesk/rustdesk/releases/latest | jq --raw-output '.assets | map(select(.name | endswith("x86_64.rpm"))) | first | .browser_download_url')
-
-wget $rustdesk_url -O /tmp/rustdesk.rpm
-
-rpm-ostree install /tmp/rustdesk.rpm
+/bin/bash ./build.d/update_ostree.sh
 
 #### Example for enabling a System Unit File
 systemctl enable podman.socket
 
 systemctl enable tailscaled.service
-
-#systemctl enable libvirtd.service
 
 systemctl enable sunshine-workaround.service
 
@@ -131,3 +57,4 @@ groupadd corectrl
 
 systemctl --global enable flatpak-user-update.timer
 systemctl --global enable container-update.timer
+systemctl enable flatpak-system-update.timer
