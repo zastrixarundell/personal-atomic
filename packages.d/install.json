@@ -1,0 +1,22 @@
+[
+    "code",
+    "inotify-tools",
+    "android-tools",
+    "podman-compose",
+    "ncdu",
+    "fastfetch",
+    "btop",
+    "rocm-smi",
+    "corectrl",
+    "goverlay",
+    "sunshine",
+    "qpwgraph",
+    "tailscale",
+    "WoeUSB",
+    "realtime-setup",
+    "openrgb-udev-rules",
+    "htop",
+    "zstd",
+    "distrobox",
+    "/tmp/rustdesk.rpm"
+]
