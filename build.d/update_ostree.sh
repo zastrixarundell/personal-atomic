@@ -1,7 +1,7 @@
 #!/bin/bash
 
-INSTALL=$(cat packages.d/install.json | jq -r '[.[] | "--install=" + .] | join(" ")')
-UNINSTALL=$(cat packages.d/uninstall.json | jq -r '[.[] | "--uninstall=" + .] | join(" ")')
+INSTALL=$(cat /tmp/packages.d/install.json | jq -r '[.[] | "--install=" + .] | join(" ")')
+UNINSTALL=$(cat /tmp/packages.d/uninstall.json | jq -r '[.[] | "--uninstall=" + .] | join(" ")')
 
 rpm-ostree update \
     $INSTALL \

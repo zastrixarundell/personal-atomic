@@ -17,9 +17,9 @@ fi
 
 # Setting custom repositories
 
-/bin/bash ./build.d/sources.sh
+/bin/bash /tmp/build.d/sources.sh
 
-/bin/bash ./build.d/update_ostree.sh
+/bin/bash /tmp/build.d/update_ostree.sh
 
 #### Example for enabling a System Unit File
 systemctl enable podman.socket
