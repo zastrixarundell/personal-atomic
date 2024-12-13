@@ -12,6 +12,10 @@ COPY cosign.pub /etc/pki/containers/zastrix.pub
 
 COPY build.sh /tmp/build.sh
 
+COPY packages.d /tmp/packages.d/
+
+COPY build.d /tmp/build.d
+
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
     ostree container commit
