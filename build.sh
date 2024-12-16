@@ -2,8 +2,6 @@
 
 set -ouex pipefail
 
-RELEASE="$(rpm -E %fedora)"
-
 if [ $LATEST_KERNEL == "true" ]; then
     /bin/bash ./build.d/latest_kernel.sh
 fi
