@@ -18,5 +18,8 @@
     "htop",
     "zstd",
     "distrobox",
-    "/tmp/rustdesk.rpm"
+    "/tmp/rustdesk.rpm",
+    "ffmpeg",
+    "ffmpeg-libs",
+    "ffmpegthumbnailer"
 ]
