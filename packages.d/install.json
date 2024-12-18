@@ -21,5 +21,10 @@
     "/tmp/rustdesk.rpm",
     "ffmpeg",
     "ffmpeg-libs",
-    "ffmpegthumbnailer"
+    "ffmpegthumbnailer",
+    "libratbag-ratbagd",
+    "google-noto-sans-balinese-fonts",
+    "google-noto-sans-cjk-fonts",
+    "google-noto-sans-javanese-fonts",
+    "google-noto-sans-sundanese-fonts"
 ]
