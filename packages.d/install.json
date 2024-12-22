@@ -27,5 +27,5 @@
     "google-noto-sans-cjk-fonts",
     "google-noto-sans-javanese-fonts",
     "google-noto-sans-sundanese-fonts",
-    "v4l2loopback"
+    "/tmp/rpms/kmods/kmod-v4l2loopback*.rpm"
 ]
