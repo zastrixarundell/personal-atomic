@@ -3,7 +3,7 @@
 set -ouex pipefail
 
 if [ $UNSTABLE_COMPONENTS == "true" ]; then
-    /bin/bash ./build.d/latest_kernel.sh
+    /bin/bash /tmp/build.d/latest_kernel.sh
 fi
 
 /bin/bash /tmp/build.d/sources.sh
