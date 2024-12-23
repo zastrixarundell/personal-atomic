@@ -111,7 +111,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           oci: false
           build-args: |
-            LATEST_KERNEL="true"
+            UNSTABLE_COMPONENTS=true
             RELEASE_VERSION=${{ steps.generate-tags.outputs.fedora_version }}
 
       - name: Push Image to docker.io

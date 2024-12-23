@@ -1,10 +1,8 @@
 FROM quay.io/fedora/fedora-kinoite
 
-ARG LATEST_KERNEL="false"
+ARG UNSTABLE_COMPONENTS="false"
 
-ENV LATEST_KERNEL=$LATEST_KERNEL
-
-RUN echo "Using latest kernel? ${LATEST_KERNEL}"
+ENV UNSTABLE_COMPONENTS=$UNSTABLE_COMPONENTS
 
 COPY system_files/desktop/shared /
 

@@ -2,7 +2,7 @@
 
 set -ouex pipefail
 
-if [ $LATEST_KERNEL == "true" ]; then
+if [ $UNSTABLE_COMPONENTS == "true" ]; then
     /bin/bash ./build.d/latest_kernel.sh
 fi
 
