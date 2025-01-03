@@ -1,6 +1,8 @@
 #!/bin/bash
 
-curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedorainfracloud.org/coprs/matte-schwartz/sunshine/repo/fedora-"${RELEASE}"/matte-schwartz-sunshine-fedora-"${RELEASE}".repo &
+curl -Lo /etc/yum.repos.d/_copr_matte-schwartz-sunshine.repo https://copr.fedorainfracloud.org/coprs/matte-schwartz/sunshine/repo/fedora-${RELEASE}/matte-schwartz-sunshine-fedora-${RELEASE}.repo &
+
+curl -Lo /etc/yum.repos.d/_copr_kylegospo_bees.repo https://copr.fedorainfracloud.org/coprs/kylegospo/bees/repo/fedora-${RELEASE}/kylegospo-bees-fedora-${RELEASE}.repo &
 
 (
     curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo &&
