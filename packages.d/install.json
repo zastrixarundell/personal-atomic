@@ -23,6 +23,5 @@
     "ffmpeg-libs",
     "ffmpegthumbnailer",
     "libratbag-ratbagd",
-    "/tmp/rpms/kmods/kmod-v4l2loopback*.rpm",
-    "bees"
+    "/tmp/rpms/kmods/kmod-v4l2loopback*.rpm"
 ]

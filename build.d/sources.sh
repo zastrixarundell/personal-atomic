@@ -1,7 +1,5 @@
 #!/bin/bash
 
-dnf copr enable -y kylegospo/bees &
-
 dnf copr enable -y matte-schwartz/sunshine &
 
 (
