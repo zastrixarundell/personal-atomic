@@ -22,5 +22,6 @@
     "ffmpeg",
     "ffmpeg-libs",
     "ffmpegthumbnailer",
-    "libratbag-ratbagd"
+    "libratbag-ratbagd",
+    "just"
 ]
