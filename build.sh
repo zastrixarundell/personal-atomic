@@ -39,7 +39,3 @@ sed -i 's/#default.clock.max-quantum[[:space:]]*= 2048/default.clock.max-quantum
 
 # Corectrl without password
 groupadd corectrl
-
-# Temp file for testing if `/tmp` is stored in the image
-
-dd if=/dev/urandom of=/tmp/output_file bs=1M count=2048
