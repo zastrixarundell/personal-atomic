@@ -23,6 +23,5 @@
     "ffmpeg-libs",
     "ffmpegthumbnailer",
     "libratbag-ratbagd",
-    "just",
-    "virt-manager"
+    "just"
 ]
