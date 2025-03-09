@@ -23,5 +23,6 @@
     "ffmpeg-libs",
     "ffmpegthumbnailer",
     "libratbag-ratbagd",
-    "just"
+    "just",
+    "waydroid"
 ]
