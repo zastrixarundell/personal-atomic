@@ -39,3 +39,6 @@ sed -i 's/#default.clock.max-quantum[[:space:]]*= 2048/default.clock.max-quantum
 
 # Corectrl without password
 groupadd corectrl
+
+# Update tldr list of commands
+tldr --update
