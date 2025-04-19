@@ -42,3 +42,6 @@ groupadd corectrl
 
 # Update tldr list of commands
 tldr --update
+
+# Create syslink for Sunshine and a fedora bug
+sudo ln -s /usr/lib64/libminiupnpc.so.2.3.0 /usr/lib64/libminiupnpc.so.17
