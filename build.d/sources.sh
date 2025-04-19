@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dnf copr enable -y matte-schwartz/sunshine &
+dnf copr enable -y lizardbyte/stable &
 
 (
     curl -Lo /etc/yum.repos.d/tailscale.repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo &&
