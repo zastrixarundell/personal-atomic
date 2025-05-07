@@ -7,7 +7,7 @@ if [ $UNSTABLE_COMPONENTS == "true" ]; then
 fi
 
 /bin/bash /tmp/build.d/sources.sh
-
+/bin/bash /tmp/build.d/asdf.sh
 /bin/bash /tmp/build.d/update_ostree.sh
 
 systemctl enable podman.socket
