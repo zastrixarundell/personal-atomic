@@ -22,5 +22,7 @@
     "ffmpeg-libs",
     "ffmpegthumbnailer",
     "libratbag-ratbagd",
-    "tldr"
+    "tldr",
+    "cloudflare-warp",
+    "mesa-va-drivers-freeworld"
 ]
