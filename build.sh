@@ -17,6 +17,7 @@ systemctl enable tailscaled.service
 systemctl enable sunshine-workaround.service
 systemctl enable sshd.service
 systemctl enable avahi-daemon.service
+systemctl enable docker
 
 # Enable auto-system updates
 systemctl enable rpm-ostreed-automatic.service
@@ -47,4 +48,4 @@ tldr --update
 sudo ln -s /usr/lib64/libminiupnpc.so.2.3.0 /usr/lib64/libminiupnpc.so.17
 
 # Create group for docker, because ostree has a bug, see: https://docs.fedoraproject.org/en-US/fedora-silverblue/troubleshooting/#_unable_to_add_user_to_group
-# (grep -E '^docker:' /usr/lib/group | sudo tee -a /etc/group)
+sudo sh -c "grep -E '^docker:' /usr/lib/group >> /etc/group"
