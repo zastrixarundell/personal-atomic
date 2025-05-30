@@ -18,7 +18,7 @@ ARG RELEASE_VERSION
 
 COPY --from=ghcr.io/ublue-os/akmods:main-${RELEASE_VERSION} /rpms/ /tmp/rpms
 
-RUN mkdir -p /var/lib/alternatives && ostree container commit
+RUN mkdir -p /var/lib/alternatives
 
 RUN /tmp/build.sh && ostree container commit
 ## NOTES:
