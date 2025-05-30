@@ -18,9 +18,9 @@ ARG RELEASE_VERSION
 
 COPY --from=ghcr.io/ublue-os/akmods:main-${RELEASE_VERSION} /rpms/ /tmp/rpms
 
-RUN mkdir -p /var/lib/alternatives && \
-    /tmp/build.sh && \
-    ostree container commit
+RUN mkdir -p /var/lib/alternatives && ostree container commit
+
+RUN /tmp/build.sh && ostree container commit
 ## NOTES:
 # - /var/lib/alternatives is required to prevent failure with some RPM installs
 # - All RUN commands must end with ostree container commit
