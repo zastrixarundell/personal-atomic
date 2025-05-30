@@ -3,6 +3,10 @@
 dnf copr enable -y lizardbyte/beta &
 
 (
+    curl -Lso /etc/yum.repos.d/docker-ce.repo https://download.docker.com/linux/fedora/docker-ce.repo
+) &
+
+(
     curl -Lso /etc/yum.repos.d/cloudflare-warp.repo https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo
 ) &
 

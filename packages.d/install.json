@@ -23,5 +23,10 @@
     "ffmpegthumbnailer",
     "libratbag-ratbagd",
     "tldr",
-    "mesa-va-drivers-freeworld"
+    "mesa-va-drivers-freeworld",
+    "docker-ce",
+    "docker-ce-cli",
+    "containerd.io",
+    "docker-buildx-plugin",
+    "docker-compose-plugin"
 ]
