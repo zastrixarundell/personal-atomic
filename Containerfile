@@ -14,9 +14,9 @@ COPY packages.d /tmp/packages.d/
 
 COPY build.d /tmp/build.d
 
-COPY submodules/plasmaX/PlasmaXDark /usr/share/plasma/desktopthemes/PlasmaXDark
+COPY submodules/plasmaX/PlasmaXDark /usr/share/plasma/desktoptheme/PlasmaXDark
 
-COPY submodules/plasmaX/PlasmaXLight /usr/share/plasma/desktopthemes/PlasmaXLight
+COPY submodules/plasmaX/PlasmaXLight /usr/share/plasma/desktoptheme/PlasmaXLight
 
 ARG RELEASE_VERSION
 
