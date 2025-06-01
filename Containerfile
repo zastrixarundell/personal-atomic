@@ -14,6 +14,10 @@ COPY packages.d /tmp/packages.d/
 
 COPY build.d /tmp/build.d
 
+COPY submodules/plasmaX/PlasmaXDark /usr/share/plasma/desktopthemes/PlasmaXDark
+
+COPY submodules/plasmaX/PlasmaXLight /usr/share/plasma/desktopthemes/PlasmaXLight
+
 ARG RELEASE_VERSION
 
 COPY --from=ghcr.io/ublue-os/akmods:main-${RELEASE_VERSION} /rpms/ /tmp/rpms
