@@ -1,6 +1,6 @@
 #!/bin/bash
 
 rpm-ostree uninstall tuned-profiles-realtime tuned-ppd tuned
-rpm-ostree install tld
+rpm-ostree install tlp
 
-systemctl enable tld.service
+systemctl enable tlp.service
