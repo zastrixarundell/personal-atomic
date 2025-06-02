@@ -20,7 +20,7 @@ env:
 
 jobs:
   build_push_normal:
-    name: Build and push image with standard components
+    name: Stable
     runs-on: ubuntu-latest
 
     permissions:
@@ -153,7 +153,7 @@ jobs:
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
 
   build_push_unstable:
-    name: Build and push image with latest components
+    name: Unstable
     runs-on: ubuntu-latest
 
     permissions:
@@ -287,7 +287,7 @@ jobs:
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
 
   build_push_laptop:
-    name: Build and push image with laptop components
+    name: Laptop
     runs-on: ubuntu-latest
 
     permissions:

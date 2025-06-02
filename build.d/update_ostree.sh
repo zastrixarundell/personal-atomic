@@ -1,8 +1,8 @@
 #!/bin/bash
 
-RELEASE=$(rpm -E %fedora)
-
 set -ouex pipefail
+
+RELEASE=$(rpm -E %fedora)
 
 INSTALL=$(cat /tmp/packages.d/install.json | jq -r '[.[]] | join(" ")')
 UNINSTALL=$(cat /tmp/packages.d/uninstall.json | jq -r '[.[]] | join(" ")')

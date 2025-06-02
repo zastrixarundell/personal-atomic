@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -ouex pipefail
+
 dnf copr enable -y lizardbyte/beta &
 
 (
