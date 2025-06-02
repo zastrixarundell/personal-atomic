@@ -32,8 +32,6 @@ jobs:
       # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
         uses: actions/checkout@v4
-        with:
-          submodules: 'recursive'
 
       - name: Generate tags
         id: generate-tags
