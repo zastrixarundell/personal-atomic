@@ -6,6 +6,10 @@ if [ $UNSTABLE_COMPONENTS == "true" ]; then
     /bin/bash /tmp/build.d/latest_kernel.sh
 fi
 
+if [ $LAPTOP == "true" ]; then
+    /bin/bash /tmp/build.d/laptop.sh
+fi
+
 /bin/bash /tmp/build.d/sources.sh
 /bin/bash /tmp/build.d/asdf.sh
 /bin/bash /tmp/build.d/update_ostree.sh

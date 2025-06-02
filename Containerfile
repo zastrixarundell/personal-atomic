@@ -1,8 +1,10 @@
 FROM quay.io/fedora/fedora-kinoite
 
 ARG UNSTABLE_COMPONENTS="false"
+ARG LAPTOP="false"
 
 ENV UNSTABLE_COMPONENTS=$UNSTABLE_COMPONENTS
+ENV LAPTOP=$LAPTOP
 
 COPY system_files/desktop/shared /
 
