@@ -28,6 +28,5 @@
     "containerd.io",
     "docker-buildx-plugin",
     "docker-compose-plugin",
-    "cloudflare-warp",
     "fish"
 ]
