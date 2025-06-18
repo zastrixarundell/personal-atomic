@@ -42,6 +42,11 @@ sed -i 's/#default.clock.quantum[[:space:]]*= 1024/default.clock.quantum       =
 sed -i 's/#default.clock.min-quantum[[:space:]]*= 32/default.clock.min-quantum   = 512/g'   /etc/pipewire/pipewire.conf
 sed -i 's/#default.clock.max-quantum[[:space:]]*= 2048/default.clock.max-quantum   = 512/g' /etc/pipewire/pipewire.conf
 
+# Use fish as the default shell
+sed -i 's@/bin/bash@/bin/fish@g' /etc/default/useradd
+
+chsh -s /bin/fish root
+
 # Corectrl without password
 groupadd corectrl
 
