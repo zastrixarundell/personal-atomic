@@ -33,6 +33,9 @@ systemctl --global enable container-update.timer
 # Decrease the boot-time
 systemctl disable NetworkManager-wait-online.service
 
+# Setup virt-manager for VMs
+systemctl enable libvirtd
+
 # Setup for PipeWire so there's less audio stuttering with EasyEffects
 mkdir -p /etc/pipewire
 
