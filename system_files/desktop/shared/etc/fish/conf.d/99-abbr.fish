@@ -1,6 +1,6 @@
 if status is-interactive
     # Going through folders
-    abbr -a cdtemp "cd $(mktemp -d)"
+    abbr -a cdtemp "cd \$(mktemp -d)"
 
     # Git stuff
     abbr -a gc "git commit"
