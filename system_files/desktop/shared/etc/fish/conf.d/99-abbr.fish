@@ -10,4 +10,6 @@ if status is-interactive
     abbr -a gcm --set-cursor=! git commit -m \"!\"
     abbr -a gcam --set-cursor=! "git add . && git commit -a -m \"!\""
     abbr -a gsp --set-cursor=! git stash push -m \"!\"
+
+    abbr -a gp "git push -u origin HEAD"
 end
