@@ -12,4 +12,9 @@ if status is-interactive
     abbr -a gsp --set-cursor=! git stash push -m \"!\"
 
     abbr -a gp "git push -u origin HEAD"
+
+    # BTRFS stuff
+
+    abbr -a compress --set-cursor=! sudo btrfs fi defragment -r -v -czstd \"!\"
+    abbr -a comp --set-cursor=! sudo compsize \"!\"
 end
