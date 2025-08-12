@@ -15,6 +15,6 @@ if status is-interactive
 
     # BTRFS stuff
 
-    abbr -a compress --set-cursor=! sudo btrfs fi defragment -r -v -czstd \"!\"
-    abbr -a comp --set-cursor=! sudo compsize \"!\"
+    abbr -a compress --set-cursor=! sudo btrfs fi defragment -r -v -czstd !
+    abbr -a comp --set-cursor=! sudo compsize !
 end
