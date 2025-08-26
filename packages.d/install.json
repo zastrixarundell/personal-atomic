@@ -30,5 +30,6 @@
     "docker-compose-plugin",
     "fish",
     "mosquitto",
-    "virt-manager"
+    "virt-manager",
+    "screen"
 ]

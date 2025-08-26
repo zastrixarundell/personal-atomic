@@ -14,7 +14,9 @@ if status is-interactive
     abbr -a gp "git push -u origin HEAD"
 
     # BTRFS stuff
-
     abbr -a compress --set-cursor=! sudo btrfs fi defragment -r -v -czstd !
     abbr -a comp --set-cursor=! sudo compsize !
+
+    # OStree stuff
+    abbr -a "rpm-ostree-diff" rpm-ostree db diff
 end
