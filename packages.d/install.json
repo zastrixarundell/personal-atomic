@@ -31,5 +31,6 @@
     "fish",
     "mosquitto",
     "virt-manager",
-    "screen"
+    "screen",
+    "ydotool"
 ]
