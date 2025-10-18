@@ -53,6 +53,9 @@ chsh -s /bin/fish root
 # Corectrl without password
 groupadd corectrl
 
+# Ydotool for control without extra args
+groupadd ydotool
+
 # Update tldr list of commands
 tldr --update
 

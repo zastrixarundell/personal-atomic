@@ -1,0 +1,10 @@
+[Unit]
+Description=ydotool service
+
+[Service]
+ExecStart=/bin/sh -c "/usr/sbin/ydotoold -p /tmp/.ydotool_socket -o 0:$(getent group ydotool | cut -d: -f3) -P 660"
+Type=exec
+
+[Install]
+WantedBy=multi-user.target
+
