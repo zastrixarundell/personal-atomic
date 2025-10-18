@@ -1,5 +1,18 @@
 # image-template
 
+## Instructions to seutp
+
+Upon a fresh installation you should run:
+```bash
+rpm-ostree rebase ostree-unverified-registry:docker.io/zastrix/personal-atomic:latest
+```
+
+After a system reboot you can run:
+
+```bash
+rpm-ostree rebase ostree-image-signed:docker.io/zastrix/personal-atomic:latest
+```
+
 # Purpose
 
 This repository is meant to be a template for building your own custom Universal Blue image. This template is the recommended way to make customizations to any image published by the Universal Blue Project:
