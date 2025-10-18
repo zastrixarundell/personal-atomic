@@ -1,6 +1,19 @@
 # Personal Atomic
 
-Person spinoff of the Fedora Kinoite projects
+## Instructions to seutp
+
+Upon a fresh installation you should run:
+```bash
+rpm-ostree rebase ostree-unverified-registry:docker.io/zastrix/personal-atomic:latest
+```
+
+After a system reboot you can run:
+
+```bash
+rpm-ostree rebase ostree-image-signed:docker.io/zastrix/personal-atomic:latest
+```
+
+# Purpose
 
 ## What does this achieve
 
