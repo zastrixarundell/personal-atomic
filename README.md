@@ -21,6 +21,7 @@ This is a system configuration for my own personal liking. It's based off the 'v
 
 * Tools for development
 * Tools for QoL
+* Configs for QoL
 * Tools for virtualization
 * Hardware and Software optimizations
 * Workaround for streaming fixes

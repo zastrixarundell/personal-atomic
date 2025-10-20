@@ -32,5 +32,11 @@
     "mosquitto",
     "virt-manager",
     "screen",
-    "ydotool"
+    "ydotool",
+    "diffstat",
+    "doxygen",
+    "gettext",
+    "patch",
+    "patchutils",
+    "systemtap"
 ]
