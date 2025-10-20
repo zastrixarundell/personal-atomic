@@ -11,12 +11,7 @@ if [ $LAPTOP == "true" ]; then
 fi
 
 /bin/bash /tmp/build.d/sources.sh
-
-# Testing if asdf can be skipped, if
-# brew sets asdf properly then there's no need to
-# install asdf into the image.
-# /bin/bash /tmp/build.d/asdf.sh
-
+/bin/bash /tmp/build.d/asdf.sh
 /bin/bash /tmp/build.d/update_ostree.sh
 
 systemctl enable podman.socket
