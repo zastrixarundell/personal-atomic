@@ -38,5 +38,6 @@
     "gettext",
     "patch",
     "patchutils",
-    "systemtap"
+    "systemtap",
+    "wxGTK-devel"
 ]
