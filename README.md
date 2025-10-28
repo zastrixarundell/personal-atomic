@@ -1,6 +1,8 @@
 # Personal Atomic
 
-## Instructions to seutp
+## Instructions to setup
+
+### Signed images
 
 Upon a fresh installation you should run:
 ```bash
@@ -12,6 +14,24 @@ After a system reboot you can run:
 ```bash
 rpm-ostree rebase ostree-image-signed:docker.io/zastrix/personal-atomic:latest
 ```
+
+### Commands
+
+|Abbreviation|Description|
+|-|-|
+|`install_brew`|Install brew onto the system (interactive)|
+|`elixir_setup`|Setup distrobox container for compiling elixir/erlang|
+|`cdtemp`|Create and enter a unique directory in `/tmp/X`|
+|`compress`|Compress btrfs directory|
+|`comp`|Compare compression for btrfs directory|
+|`rpm-ostree-diff`|Show rpm-ostree changes without rebooting|
+|`amend`|Amend git commit|
+|`gsp`|Push to git stash with message|
+|`gp`|Push to git origin with the current HEAD (works for new branches)|
+|`gc`|Git commit current changes|
+|`gca`|Add everything and then commit|
+|`gcm`|Same as `gc` but with message|
+|`gcam`|Same as `gca` but with message|
 
 # Purpose
 
