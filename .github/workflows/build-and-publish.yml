@@ -40,6 +40,8 @@ jobs:
           tags: build_stage
           image: build
           oci: false
+          extra-args: |
+            --target build
 
       - name: Export image as artifact
         run: |
