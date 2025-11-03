@@ -74,10 +74,10 @@ jobs:
           name: build
 
       - name: Import build stage
-        run: buildah pull oci-archive:build.oci:build:latest
+        run: buildah pull oci-archive:build.oci
 
       - name: Retag to match Containerfile
-        run: buildah tag build:latest quay.io/fedora/fedora:latest
+        run: buildah tag oci-archive:build.oci quay.io/fedora/fedora:latest
 
       - name: Generate tags
         id: generate-tags
