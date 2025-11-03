@@ -68,7 +68,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: rpms
-          path: /opt/rpms
+          path: ./rpms
 
       - name: Generate tags
         id: generate-tags
@@ -149,8 +149,6 @@ jobs:
           oci: false
           build-args: |
             RELEASE_VERSION=${{ steps.generate-tags.outputs.fedora_version }}
-          extra-args: |
-            --volume /opt:/opt
 
       - name: Push Image to docker.io
         if: github.event_name != 'pull_request'
