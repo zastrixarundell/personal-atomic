@@ -68,6 +68,14 @@ jobs:
       - name: Checkout Push to Registry action
         uses: actions/checkout@v4
 
+      - name: Download build stage
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+
+      - name: Import build stage
+        run: buildah pull oci-archive:build.oci
+
       - name: Generate tags
         id: generate-tags
         shell: bash
