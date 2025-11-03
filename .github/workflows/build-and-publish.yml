@@ -19,8 +19,39 @@ env:
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"  # do not edit
 
 jobs:
+  build_binaries:
+    name: Prebuilt binaries
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      # Checkout push-to-registry action GitHub repository
+      - name: Checkout Push to Registry action
+        uses: actions/checkout@v4
+
+      # Build image using Buildah action
+      - name: Build Image
+        id: build_image
+        uses: redhat-actions/buildah-build@v2
+        with:
+          containerfiles: ./Containerfile.rpms
+          image: build
+          oci: false
+          extra-args: |
+            --volume /opt:/opt
+
+      - name: Upload RPMs
+        uses: actions/upload-artifact@v4
+        with:
+          name: rpms
+          path: /opt/rpms/*
+          retention-days: 3
+
   build_push_normal:
     name: Stable
+    needs: build_binaries
     runs-on: ubuntu-latest
 
     permissions:
@@ -32,6 +63,12 @@ jobs:
       # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
         uses: actions/checkout@v4
+
+      - name: Download build stage
+        uses: actions/download-artifact@v4
+        with:
+          name: rpms
+          path: ./rpms
 
       - name: Generate tags
         id: generate-tags
@@ -153,7 +190,9 @@ jobs:
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
 
   build_push_unstable:
+    if: ${{ vars.LATEST_KERNEL == 'true' }}
     name: Unstable
+    needs: build_binaries
     runs-on: ubuntu-latest
 
     permissions:
@@ -165,6 +204,12 @@ jobs:
       # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
         uses: actions/checkout@v4
+
+      - name: Download build stage
+        uses: actions/download-artifact@v4
+        with:
+          name: rpms
+          path: ./rpms
 
       - name: Generate tags
         id: generate-tags
@@ -288,6 +333,7 @@ jobs:
 
   build_push_laptop:
     name: Laptop
+    needs: build_binaries
     runs-on: ubuntu-latest
 
     permissions:
@@ -299,6 +345,12 @@ jobs:
       # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
         uses: actions/checkout@v4
+
+      - name: Download build stage
+        uses: actions/download-artifact@v4
+        with:
+          name: rpms
+          path: ./rpms
 
       - name: Generate tags
         id: generate-tags

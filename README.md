@@ -68,3 +68,12 @@ To add a user to the `libvirt` group, you have to do this set of commands:
 grep -E '^libvirt:' /usr/lib/group >> /etc/group
 usermod -aG libvirt username
 ```
+
+## Information about building
+
+Some rpms need to be built in-place due to requirements of the latest kwin and such.
+
+Beacuse of that, there are multiple `Containerfile*` files:
+
+1) `Containerfile.rpms` which build the required rpms and pushes it as an artifact
+2) `Containerfile` the main file which also used the pre-downloaded artifacts.

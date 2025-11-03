@@ -19,7 +19,7 @@ dnf copr enable -y lizardbyte/beta &
 
 (
     rustdesk_url=$(curl -s https://api.github.com/repos/rustdesk/rustdesk/releases/latest | jq --raw-output '.assets | map(select(.name | endswith("x86_64.rpm"))) | first | .browser_download_url') &&
-    wget $rustdesk_url -O /tmp/rustdesk.rpm
+    wget $rustdesk_url -O /opt/rpms/rustdesk.rpm
 ) &
 
 wait
