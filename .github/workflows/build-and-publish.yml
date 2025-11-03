@@ -40,7 +40,7 @@ jobs:
           image: build
           oci: false
           extra-args: |
-            --mount type=bind,source=/opt,target=/opt
+            --volume /opt:/opt
 
       - name: Upload RPMs
         uses: actions/upload-artifact@v4
