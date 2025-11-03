@@ -51,7 +51,6 @@ jobs:
 
   build_push_normal:
     name: Stable
-    if: false
     needs: build_binaries
     runs-on: ubuntu-latest
 
@@ -68,16 +67,13 @@ jobs:
       - name: Download build stage
         uses: actions/download-artifact@v4
         with:
-          name: build
+          name: rpms
 
-      - name: Import build stage
-        id: import
+      - name: Download and extract rpms
         run: |
-          IMAGE_ID=$(buildah pull oci-archive:build.oci | tail -n1)
-          echo "IMAGE_ID=$IMAGE_ID" >> $GITHUB_OUTPUT
-
-      - name: Retag to match Containerfile
-        run: buildah tag ${{ steps.import.outputs.IMAGE_ID }} build
+          mkdir -p /opt/rpms
+          unzip rpms.zip /opt/rpms
+          ls -l /opt/rpms
 
       - name: Generate tags
         id: generate-tags
