@@ -74,10 +74,13 @@ jobs:
           name: build
 
       - name: Import build stage
-        run: buildah pull oci-archive:build.oci
+        id: import
+        run: |
+          IMAGE_ID=$(buildah pull oci-archive:build.oci | tail -n1)
+          echo "IMAGE_ID=$IMAGE_ID" >> $GITHUB_OUTPUT
 
       - name: Retag to match Containerfile
-        run: buildah tag oci-archive:build.oci quay.io/fedora/fedora:latest
+        run: buildah tag ${{ steps.import.outputs.IMAGE_ID }} build
 
       - name: Generate tags
         id: generate-tags
