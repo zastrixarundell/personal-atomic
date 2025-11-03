@@ -37,7 +37,6 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           containerfiles: ./Containerfile
-          tags: build_stage
           image: build
           oci: false
           extra-args: |
@@ -45,13 +44,13 @@ jobs:
 
       - name: Export image as artifact
         run: |
-          buildah push build:build_stage oci-archive:build_stage.oci
+          buildah push build:latest oci-archive:build.oci
 
       - name: Upload OCI artifact
         uses: actions/upload-artifact@v4
         with:
-          name: blur_stage
-          path: blur_stage.oci
+          name: build
+          path: build.oci
           retention-days: 1
 
   build_push_normal:
