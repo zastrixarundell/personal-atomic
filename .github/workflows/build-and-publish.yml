@@ -36,25 +36,22 @@ jobs:
         id: build_image
         uses: redhat-actions/buildah-build@v2
         with:
-          containerfiles: ./Containerfile
+          containerfiles: ./Containerfile.rpms
           image: build
           oci: false
           extra-args: |
-            --target build
+            --mount type=bind,source=/opt,target=/opt
 
-      - name: Export image as artifact
-        run: |
-          buildah push build:latest oci-archive:build.oci
-
-      - name: Upload OCI artifact
+      - name: Upload RPMs
         uses: actions/upload-artifact@v4
         with:
-          name: build
-          path: build.oci
-          retention-days: 1
+          name: rpms
+          path: /opt/rpms/*
+          retention-days: 3
 
   build_push_normal:
     name: Stable
+    if: false
     needs: build_binaries
     runs-on: ubuntu-latest
 
