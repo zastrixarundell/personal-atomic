@@ -76,6 +76,9 @@ jobs:
       - name: Import build stage
         run: buildah pull oci-archive:build.oci
 
+      - name: Retag to match Containerfile
+        run: buildah tag build:latest quay.io/fedora/fedora:latest
+
       - name: Generate tags
         id: generate-tags
         shell: bash
@@ -196,6 +199,7 @@ jobs:
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
 
   build_push_unstable:
+    if: false
     name: Unstable
     needs: build_binaries
     runs-on: ubuntu-latest
@@ -331,6 +335,7 @@ jobs:
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
 
   build_push_laptop:
+    if: false
     name: Laptop
     needs: build_binaries
     runs-on: ubuntu-latest

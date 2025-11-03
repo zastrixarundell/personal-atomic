@@ -1,4 +1,4 @@
-FROM quay.io/fedora/fedora AS build
+FROM quay.io/fedora/fedora:latest AS build
 
 RUN sudo dnf in update -y
 
