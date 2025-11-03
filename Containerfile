@@ -1,4 +1,4 @@
-FROM quay.io/fedora/fedora AS blur
+FROM quay.io/fedora/fedora AS build
 
 RUN sudo dnf in update -y
 
@@ -39,7 +39,7 @@ COPY packages.d /tmp/packages.d/
 
 COPY build.d /tmp/build.d
 
-COPY --from=blur /root/kwin-effects-forceblur/build/kwin-better-blur.rpm /tmp/kwin-better-blur.rpm
+COPY --from=build /root/kwin-effects-forceblur/build/kwin-better-blur.rpm /tmp/kwin-better-blur.rpm
 
 ARG RELEASE_VERSION
 

@@ -19,8 +19,42 @@ env:
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"  # do not edit
 
 jobs:
+  build_binaries:
+    name: Prebuilt binaries
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      # Checkout push-to-registry action GitHub repository
+      - name: Checkout Push to Registry action
+        uses: actions/checkout@v4
+
+      # Build image using Buildah action
+      - name: Build Image
+        id: build_image
+        uses: redhat-actions/buildah-build@v2
+        with:
+          containerfiles: ./Containerfile
+          tags: build_stage
+          image: build
+          oci: false
+
+      - name: Export image as artifact
+        run: |
+          buildah push build:build_stage oci-archive:build_stage.oci
+
+      - name: Upload OCI artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: blur_stage
+          path: blur_stage.oci
+          retention-days: 1
+
   build_push_normal:
     name: Stable
+    needs: build_binaries
     runs-on: ubuntu-latest
 
     permissions:
@@ -154,6 +188,7 @@ jobs:
 
   build_push_unstable:
     name: Unstable
+    needs: build_binaries
     runs-on: ubuntu-latest
 
     permissions:
@@ -288,6 +323,7 @@ jobs:
 
   build_push_laptop:
     name: Laptop
+    needs: build_binaries
     runs-on: ubuntu-latest
 
     permissions:
