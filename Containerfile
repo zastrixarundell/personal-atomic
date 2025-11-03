@@ -16,8 +16,6 @@ COPY packages.d /tmp/packages.d/
 
 COPY build.d /tmp/build.d
 
-COPY --from=build /root/kwin-effects-forceblur/build/kwin-better-blur.rpm /tmp/kwin-better-blur.rpm
-
 ARG RELEASE_VERSION
 
 COPY --from=ghcr.io/ublue-os/akmods:main-${RELEASE_VERSION} /rpms/ /tmp/rpms

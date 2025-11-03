@@ -1,4 +1,7 @@
 [
+    "/tmp/rustdesk.rpm",
+    "/tmp/rpms/kmods/kmod-v4l2loopback*.rpm",
+    "/opt/rpms/kwin-better-blur.rpm",
     "code",
     "inotify-tools",
     "android-tools",
@@ -16,9 +19,6 @@
     "htop",
     "zstd",
     "distrobox",
-    "/tmp/rustdesk.rpm",
-    "/tmp/kwin-better-blur.rpm",
-    "/tmp/rpms/kmods/kmod-v4l2loopback*.rpm",
     "ffmpeg",
     "ffmpeg-libs",
     "ffmpegthumbnailer",

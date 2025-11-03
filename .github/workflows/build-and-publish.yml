@@ -70,10 +70,6 @@ jobs:
           name: rpms
           path: /opt/rpms
 
-      - name: List rpms
-        run:
-          ls -l /opt/rpms
-
       - name: Generate tags
         id: generate-tags
         shell: bash
@@ -153,6 +149,8 @@ jobs:
           oci: false
           build-args: |
             RELEASE_VERSION=${{ steps.generate-tags.outputs.fedora_version }}
+          extra-args: |
+            --volume /opt:/opt
 
       - name: Push Image to docker.io
         if: github.event_name != 'pull_request'
