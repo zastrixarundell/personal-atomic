@@ -20,7 +20,7 @@ COPY rpms /opt/rpms
 
 ARG RELEASE_VERSION
 
-COPY --from=ghcr.io/ublue-os/akmods:main-${RELEASE_VERSION} /rpms/ /tmp/rpms
+# COPY --from=ghcr.io/ublue-os/akmods:main-${RELEASE_VERSION} /rpms/ /tmp/rpms
 
 RUN mkdir -p /var/lib/alternatives
 

@@ -1,6 +1,5 @@
 [
-    "/tmp/rustdesk.rpm",
-    "/tmp/rpms/kmods/kmod-v4l2loopback*.rpm",
+    "/opt/rpms/rustdesk.rpm",
     "/opt/rpms/kwin-better-blur.rpm",
     "code",
     "inotify-tools",
