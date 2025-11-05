@@ -355,7 +355,7 @@ jobs:
       - name: Add laptop default configs
         run: |
           rsync -a system_files/laptop/ system_files/shared/
-          ls -l
+          ls -l system_files/shared
 
       - name: Generate tags
         id: generate-tags
