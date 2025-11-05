@@ -352,6 +352,11 @@ jobs:
           name: rpms
           path: ./rpms
 
+      - name: Add laptop default configs
+        run: |
+          rsync -a system_files/laptop/ system_files/shared/
+          ls -l
+
       - name: Generate tags
         id: generate-tags
         shell: bash
