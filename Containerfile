@@ -6,7 +6,7 @@ ARG LAPTOP="false"
 ENV UNSTABLE_COMPONENTS=$UNSTABLE_COMPONENTS
 ENV LAPTOP=$LAPTOP
 
-COPY system_files/desktop/shared /
+COPY system_files/shared /
 
 COPY cosign.pub /etc/pki/containers/zastrix.pub
 
