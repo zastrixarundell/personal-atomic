@@ -21,5 +21,5 @@ if status is-interactive
     abbr -a "rpm-ostree-diff" rpm-ostree db diff
 
     # Default setup for postgres
-    abbr -a podman run -it -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d --name postgres_development postgres
+    abbr -a setup_postgres podman run -it -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d --name postgres_development postgres
 end
