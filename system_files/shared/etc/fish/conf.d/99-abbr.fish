@@ -17,8 +17,8 @@ if status is-interactive
     abbr -a gr --set-cursor=! git reset @~!
 
     # BTRFS stuff
-    abbr -a compress --set-cursor=! sudo btrfs fi defragment -r -v -czstd !
-    abbr -a comp --set-cursor=! sudo compsize !
+    abbr -a btrfs-compress --set-cursor=! sudo btrfs fi defragment -r -v -czstd !
+    abbr -a btrfs-compsize --set-cursor=! sudo compsize !
 
     # OStree stuff
     abbr -a "rpm-ostree-diff" rpm-ostree db diff

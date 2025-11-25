@@ -17,6 +17,8 @@ rpm-ostree rebase ostree-image-signed:docker.io/zastrix/personal-atomic:latest
 
 ### Commands
 
+#### Setups
+
 |Abbreviation|Description|
 |-|-|
 |`setup_brew`|Install brew onto the system (interactive)|
@@ -24,8 +26,8 @@ rpm-ostree rebase ostree-image-signed:docker.io/zastrix/personal-atomic:latest
 |`setup_postgres`|Boilerplate podman command for postgres|
 |`setup_phoenix`|Command to install `phx_new`|
 |`cdtemp`|Create and enter a unique directory in `/tmp/X`|
-|`compress`|Compress btrfs directory|
-|`comp`|Compare compression for btrfs directory|
+|`btrfs-compress`|Compress btrfs directory|
+|`btrfs-compsize`|Compare compression for btrfs directory|
 |`rpm-ostree-diff`|Show rpm-ostree changes without rebooting|
 |`amend`|Amend git commit|
 |`gsp`|Push to git stash with message|
@@ -34,6 +36,8 @@ rpm-ostree rebase ostree-image-signed:docker.io/zastrix/personal-atomic:latest
 |`gca`|Add everything and then commit|
 |`gcm`|Same as `gc` but with message|
 |`gcam`|Same as `gca` but with message|
+|`grh`|Git reset hard|
+|`gr`|Reset to N git commits|
 
 # Purpose
 
