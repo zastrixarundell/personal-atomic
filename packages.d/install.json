@@ -41,5 +41,6 @@
     "patchutils",
     "systemtap",
     "wxGTK-devel",
-    "gcc-c++"
+    "gcc-c++",
+    "git"
 ]
