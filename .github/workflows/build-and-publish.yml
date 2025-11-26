@@ -61,7 +61,6 @@ jobs:
     strategy:
       matrix:
         variant: [normal, laptop]
-      max-parallel: 1
 
     steps:
       # Checkout push-to-registry action GitHub repository
