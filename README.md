@@ -25,6 +25,7 @@ rpm-ostree rebase ostree-image-signed:docker.io/zastrix/personal-atomic:latest
 |`setup_elixir`|Setup distrobox container for compiling elixir/erlang|
 |`setup_postgres`|Boilerplate podman command for postgres|
 |`setup_phoenix`|Command to install `phx_new`|
+|`setup_zed`|Command to install zed|
 |`cdtemp`|Create and enter a unique directory in `/tmp/X`|
 |`btrfs-compress`|Compress btrfs directory|
 |`btrfs-compsize`|Compare compression for btrfs directory|
