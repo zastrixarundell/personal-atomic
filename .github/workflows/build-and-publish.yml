@@ -43,7 +43,7 @@ jobs:
             --volume /opt:/opt
 
       - name: Upload RPMs
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: rpms
           path: /opt/rpms/*
