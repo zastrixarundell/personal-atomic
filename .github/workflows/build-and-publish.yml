@@ -107,7 +107,7 @@ jobs:
           df -h
 
       - name: Download build stage
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: rpms
           path: ./rpms
