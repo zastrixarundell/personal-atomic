@@ -4,7 +4,7 @@ set -ouex pipefail
 
 dnf copr enable -y lizardbyte/beta &
 
-dnf copr enable joviatrix/monado-git &
+dnf copr enable -y joviatrix/monado-git &
 
 (
     curl -Lso /etc/yum.repos.d/docker-ce.repo https://download.docker.com/linux/fedora/docker-ce.repo
