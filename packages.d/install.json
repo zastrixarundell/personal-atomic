@@ -40,5 +40,6 @@
     "wxGTK-devel",
     "gcc-c++",
     "git",
-    "monado"
+    "monado",
+    "codium"
 ]
