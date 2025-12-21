@@ -39,5 +39,6 @@
     "systemtap",
     "wxGTK-devel",
     "gcc-c++",
-    "git"
+    "git",
+    "monado"
 ]
